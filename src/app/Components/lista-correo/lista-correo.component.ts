@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouteConfigLoadStart } from '@angular/router';
 
 @Component({
   selector: 'app-lista-correo',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ListaCorreoComponent implements OnInit {
   correos: any[];
   responder:boolean;
-  
+
   constructor() {
     const correo1 = {
       titulo: 'Titulo del 1',
@@ -50,4 +51,9 @@ export class ListaCorreoComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  clickResponder() {
+    this.responder= !this.responder;
+  
+  }
 }
