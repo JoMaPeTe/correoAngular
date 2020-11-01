@@ -8,7 +8,8 @@ import { RouteConfigLoadStart } from '@angular/router';
 })
 export class ListaCorreoComponent implements OnInit {
   correos: any[];
-  responder:boolean;
+  responder: boolean;
+  correoAResponder: any;
 
   constructor() {
     const correo1 = {
@@ -48,12 +49,14 @@ export class ListaCorreoComponent implements OnInit {
       destinatario: 'correoReceptor@openWebinar.inv',
       leido: false,
     });
+
+    this.responder = false;
   }
 
   ngOnInit(): void {}
 
-  clickResponder() {
-    this.responder= !this.responder;
-  
+  clickResponder(correo) {
+    this.responder = !this.responder;
+    this.correoAResponder = correo;
   }
 }
