@@ -61,7 +61,7 @@ export class ListaCorreoComponent implements OnInit {
     correo.responder = !correo.responder;
   }
 
-  accionRespuestaRapida(){
-    console.log("Respuesta Recibida");
+  accionRespuestaRapida(correo){
+    correo.responder = false;
   }
 }
