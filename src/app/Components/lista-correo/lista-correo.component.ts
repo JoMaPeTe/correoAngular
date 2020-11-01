@@ -56,7 +56,8 @@ export class ListaCorreoComponent implements OnInit {
   ngOnInit(): void {}
 
   clickResponder(correo) {
-    this.responder = !this.responder;
-    this.correoAResponder = correo;
+    //this.responder = !this.responder;
+    //this.correoAResponder = correo;
+    correo.responder = !correo.responder;
   }
 }
