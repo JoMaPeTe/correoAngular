@@ -5,15 +5,16 @@ import { AvisosService } from 'src/app/Services/avisos.service';
 @Component({
   selector: 'app-nuevo-correo',
   templateUrl: './nuevo-correo.component.html',
-  styleUrls: ['./nuevo-correo.component.scss'],
+  styleUrls: ['./nuevo-correo.component.scss']
 })
 export class NuevoCorreoComponent implements OnInit {
+
   nuevoCorreo: FormGroup;
   submitted = false;
   @Input() correo: any;
   @Output() accionRealizada: EventEmitter<any> = new EventEmitter();
 
-  constructor(private formBuilder: FormBuilder, private servicioAvisos: AvisosService) {}
+  constructor(private formBuilder: FormBuilder, private servicioAvisos: AvisosService) { }
 
   ngOnInit() {
     this.nuevoCorreo = this.formBuilder.group({
@@ -21,19 +22,16 @@ export class NuevoCorreoComponent implements OnInit {
       cuerpo: ['', [Validators.required, Validators.minLength(10)]],
       destinatario: ['', [Validators.required, Validators.email]],
     });
-
-    if (this.correo != undefined) {
     
+    if(this.correo != undefined){
       this.nuevoCorreo.patchValue({
-        titulo: 'Re: ' + this.correo.titulo,
-        destinatario: this.correo.emisor,
+        titulo: 'Re: '+ this.correo.titulo, 
+        destinatario: this.correo.emisor
       });
     }
   }
 
-  get formulario() {
-    return this.nuevoCorreo.controls;
-  }
+  get formulario() { return this.nuevoCorreo.controls; }
 
   onSubmit() {
     this.submitted = true;
@@ -45,7 +43,7 @@ export class NuevoCorreoComponent implements OnInit {
     let correo = this.nuevoCorreo.value;
     correo.leido = false;
     correo.emisor = 'correoEmisor1@openWebinar.inv';
-    
+
     this.onReset();
     this.servicioAvisos.showMenssage(`Correo enviado a ${correo.emisor}`);
   }
@@ -60,5 +58,5 @@ export class NuevoCorreoComponent implements OnInit {
     this.onReset();
     this.servicioAvisos.showMenssage("Envio Cancelado");
   }
-  
+
 }
