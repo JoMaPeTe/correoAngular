@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from "@angular/core";
 import * as _ from "lodash";
-import { GoogleAuthService } from 'ng-gapi';
+import { GoogleAuthService } from "ng-gapi";
 import GoogleUser = gapi.auth2.GoogleUser;
 
 @Injectable({
@@ -8,25 +8,24 @@ import GoogleUser = gapi.auth2.GoogleUser;
 })
 export class LoginService {
   public static readonly SESSION_STORAGE_KEY: string = "usuarioGoogle";
-  user: GoogleUser = undefined;
+
+  profile: any = undefined;
+  tokenUser: string;
+  userId: string;
 
   constructor(private googleAuthService: GoogleAuthService, private ngZone: NgZone) { 
     if(this.isUserSignedIn()){
-      this.user = this.getSessionUser();
+       this.setUser(this.getSessionUser());
     }
   }
 
-  public getUser(){
-    return this.user;
+  private setUser(user: any){
+    this.profile = user['w3'];
+    this.tokenUser = user['Zi'].access_token;
+    this.userId = this.profile['Eea'];
   }
 
-  public getToken(){
-    return this.user.getAuthResponse().access_token;
-  }
-
-  public getUserId(){
-    return this.user.getBasicProfile().getId();
-  }
+  
 
   private getSessionUser(): GoogleUser {
     let user: string = sessionStorage.getItem(LoginService.SESSION_STORAGE_KEY);
@@ -48,7 +47,9 @@ export class LoginService {
     this.googleAuthService.getAuth().subscribe((auth) => {
       try {
         auth.signOut();
-        this.user = undefined;
+        this.profile = undefined;
+        this.tokenUser = undefined;
+        this.userId = undefined;
       } catch (e) {
         console.error(e);
       }
@@ -62,7 +63,7 @@ export class LoginService {
 
   private signInSuccessHandler(res: GoogleUser) {
     this.ngZone.run(() => {
-      this.user = res;
+      this.setUser(res);
       sessionStorage.setItem(
         LoginService.SESSION_STORAGE_KEY, JSON.stringify(res)
       );
