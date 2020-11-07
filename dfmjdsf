@@ -1,0 +1,44 @@
+* [33m1a88430[m[33m ([m[1;36mHEAD -> [m[1;32mclase4-10-ServHttp[m[33m)[m Incluimos un nuevo servicio para realizar las llamadas http con gmail,creamos el primer metodo para recoger los correos recibidos
+* [33mb3d3252[m[33m ([m[1;32mclase4-9OAuth[m[33m)[m Hemos incluido las funciones de login y desconexion ahora en el componente login y ademas mostramos los datos del usuario cuando esta conectado
+* [33m9738867[m NOfunciona OAuth porque google quiere $$- Material instalado
+* [33m9afbe27[m Integramos el componente login en vista de correos recibidos y configuramos en app.module el modulo ng-gapi para su uso
+* [33m9fab079[m Iniciamos la integracion con OAuth instalando la liberia ng-gapi y creando para su uso un servicio llamado login y un componente con el mismo nombre
+*   [33m42095a0[m[33m ([m[1;32mmaster[m[33m)[m Merge commit 'eda7026'
+[32m|[m[33m\[m  
+[32m|[m * [33meda7026[m[33m ([m[1;32mprivate-avisos-component-error[m[33m)[m buscando error
+* [33m|[m [33m6574558[m[33m ([m[1;32mclase4-7-servicios-interconexion[m[33m)[m Arreglado error privacidad avisos
+[33m|[m[33m/[m  
+* [33m01989e9[m[33m ([m[1;31morigin/clase4-7-servicios-interconexion[m[33m)[m Incluimos una funcion para cuando cancelamos el envio de correo e inclumos el destinatario en el mensaje al enviar
+* [33m8980b4b[m[33m ([m[1;32mclase4-4-accion-respuesta-rapida[m[33m)[m Ahora que hemos probado que funciona, pasamos toda la logica al servicio de avisos, lo importamos con los constructores de avisos y nuevo-correo para que puedan acceder a el. Ahora al simular enviar un correo, aparece el aviso
+* [33m04593da[m Completamos parte del componente avisos para que muestre un mensaje y luego lo oculte.
+* [33m85ebdb0[m Integramos todos los componentes en la vista y la incluimos en app.component.html para que sea visible
+* [33m832f46e[m Creamos con ng un componente de avisos, un servicio y una nueva vista  para correos recibidos, donde vamos a integrarlo todo
+* [33m3ffcd74[m Eliminamos código comentado
+* [33me8cdaa7[m[33m ([m[1;31morigin/clase4-4-accion-respuesta-rapida[m[33m)[m Como solo queremos cerrar el componente de respuesta rápida, nos basta con sustituir el contenido del evento (que estaba vacio) por el correo que fue tratado, y poder así cambiar su estado de respuesta
+* [33mb75861d[m Primero preparamos el componente hijo, para emitir eventos al padre, comprobamos en consola y posteriormente recogeremos en el padre el evento del hijo
+* [33m6ab854f[m[33m ([m[1;31morigin/respuestaRapida[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mrespuestaRapida[m[33m)[m Con ng-container solucionamos el problema, es una utilidad de angular para no generar un nuevo elemento, para poder hacer uso de ngFor y ngIf por ejemplo
+* [33m1b65920[m Con ng-container solucionamos el problema, es una utilidad de angular para no generar un nuevo elemento, para poder hacer uso de ngFor y ngIf por ejemplo
+* [33m2ddfaaa[m Ahora hemos incluido el componente dentro de la tabla, pero vemos unos cuantos problemas. El primero a solucionar es como podemos incluir una nueva fila, estando ya en una fila
+* [33mcc357ec[m Usamos ngOnInit para recoger la variable y comprobar si se ha iniciado, si es así, vamos a completar nuestro nuevo correo con los datos que ya sabemos
+* [33mafa3356[m Ahora hemos asignado el correo pulsado al componente hijo, el compone…
+* [33m23e5706[m Cambiamos de sitio la funcionalidad al hacer click en el boton responder para poder enviar a continuación, la información que queramos
+* [33m386366d[m Preparamos el componente nuevo correo para recibir los datos de un correo concreto para poder completar la información en el formulario, realizamos una prueba enviando un valor directamente y lo vemos por consola
+* [33m2315152[m Creamos una variable booleana en ts, asignamos al boton responder de cada correo una funcion para cambiar el valor de esta variable al hacer click. En el selector del componente nuevo-correo, codificamos que solo exista cuando la variable sea positiva
+* [33mda44d0f[m modificado onReset
+* [33m762bd76[m Limpiamos el ejemplo de ngModel e incluimos el componente nuevo correo en el componente lista de correos
+* [33m4635f7e[m Colocamos en app.component el componente lista para verlo mientras lo editamos
+* [33m90ee6ef[m[33m ([m[1;31morigin/reactiveForms[m[33m, [m[1;32mreactiveForms[m[33m)[m Se realiza un formulario reactivo básico para mostrar como controlar desde typescript los formularios y mostrar errores
+* [33m11a8cb2[m Añadimos el modulo necesario y creamos un componente vacio para realizar un formulario simple para enviar un correo
+* [33ma491780[m[33m ([m[1;31morigin/nuevo-componente[m[33m)[m Importamos en app.module.ts el modulo FormsModule para usar ngModel
+* [33m3eae910[m Usamos ngModel para setear el valor en el radio, pero genera error
+* [33m197000a[m Creamos unos radio buttons para mostrar el estado de lectura de un email
+* [33m602b4ff[m Incluimos otro ngIf para mostrar dos estados
+* [33m6c1d87d[m Incluimos un nuevo parametro en los correos, un booleano para marcar si ya fue leido o no. Lo mostraremos usando ngIf
+* [33mdb3fc8d[m Usamos un ngfor para crear el mismo resultado pero ahora para un numero infinito de elementos…
+* [33m2139f9e[m Creamos el esqueleto del html y unos datos de ejemplo en ts
+* [33maa9ec76[m componente lista correo creado y mostrado
+* [33m4c496cd[m[33m ([m[1;32mnuevo-componente[m[33m)[m creamos componente correo
+* [33mc9c1faa[m[33m ([m[1;32mramaTrabajo[m[33m)[m quitamos pagina demo en archivo app.component.html
+[33m|[m * [33mf55fe16[m[33m ([m[1;31morigin/ramaTrabajo[m[33m)[m quitamos pagina demo en archivo app.component.html
+[33m|[m[33m/[m  
+* [33ma226671[m proyecto angular base ng new nombreProyecto
