@@ -19,7 +19,7 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 let gapiClientConfig: NgGapiClientConfig = {
-  client_id: "943725067653-ndugonke7riekcgooahcaldtmh74tt0n.apps.googleusercontent.com",
+  client_id: "PONER AQUI EL ID QUE TE DÉ GOOGLE EN TU PROYECTO ....apps.googleusercontent.com",
   discoveryDocs: ["https://analyticsreporting.googleapis.com/$discovery/rest?version=v4"],
   ux_mode: "popup",
   redirect_uri: "http://localhost:4200/loged",
